@@ -7,7 +7,7 @@
 
 # Install nvm: node-version manager
 # https://github.com/creationix/nvm
-sudo apt-get install -y git-core
+sudo apt-get install -y git-core curl
 curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 
 # Load nvm and install latest production node
@@ -32,17 +32,17 @@ sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
 # Backup any previous versions:
 cd $HOME
 if [ -d ./dotfiles.wjd/ ]; then
-    mv dotfiles.wjd dotfiles.wjd.old
+    echo 'Please remove existing dotfiles.wjd directory.'
+else
+    # Get the dotfiles.wjd repository:
+    git clone https://github.com/williamdemeo/dotfiles.wjd.git
+
+    # Create the required links:
+    ln -sb --suffix='.orig' ~/dotfiles.wjd/bashrc.wjd ~/.bashrc
+    ln -sb --suffix='.orig' ~/dotfiles.wjd/bashrc_custom.wjd ~/.bashrc_custom
+    ln -sb --suffix='.orig' ~/dotfiles.wjd/bash_profile.wjd ~/.bash_profile
+    ln -sb --suffix='.orig' ~/dotfiles.wjd/bash_aliases.wjd ~/.bash_aliases
+    ln -sb --suffix='.orig' ~/dotfiles.wjd/profile.wjd ~/.profile
+    ln -sb --suffix='.orig' ~/dotfiles.wjd/.emacs.d ~/.emacs.d
 fi
-
-# Get the dotfiles.wjd repository:
-git clone https://github.com/williamdemeo/dotfiles.wjd.git
-
-# Create the required links:
-ln -sb --suffix='.orig' ~/dotfiles.wjd/bashrc.wjd ~/.bashrc
-ln -sb --suffix='.orig' ~/dotfiles.wjd/bashrc_custom.wjd ~/.bashrc_custom
-ln -sb --suffix='.orig' ~/dotfiles.wjd/bash_profile.wjd ~/.bash_profile
-ln -sb --suffix='.orig' ~/dotfiles.wjd/bash_aliases.wjd ~/.bash_aliases
-ln -sb --suffix='.orig' ~/dotfiles.wjd/profile.wjd ~/.profile
-ln -sb --suffix='.orig' ~/dotfiles.wjd/.emacs.d ~/.emacs.d
 
