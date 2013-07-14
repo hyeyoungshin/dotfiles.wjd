@@ -44,6 +44,7 @@ else
     ln -sb --suffix='.orig' ~/dotfiles.wjd/bash_profile.wjd ~/.bash_profile
     ln -sb --suffix='.orig' ~/dotfiles.wjd/bash_aliases.wjd ~/.bash_aliases
     ln -sb --suffix='.orig' ~/dotfiles.wjd/profile.wjd ~/.profile
-    ln -sb --suffix='.orig' ~/dotfiles.wjd/.emacs.d ~/.emacs.d
+    ln -sb --suffix='.orig' ~/dotfiles.wjd/emacs.d.wjd ~/.emacs.d
+    ln -sb --suffix='.orig' ~/dotfiles.wjd/emacs.d.wjd/init.el ~/.emacs
 fi
 
