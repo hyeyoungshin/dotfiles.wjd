@@ -32,7 +32,8 @@ sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
 # Backup any previous versions:
 cd $HOME
 if [ -d ./dotfiles.wjd/ ]; then
-    echo 'Please remove existing dotfiles.wjd directory.'
+    echo 'ERROR: Directory dotfiles.wjd already exists...'
+    echo 'ERROR:    ...please rename it and run setup.sh again.'
 else
     # Get the dotfiles.wjd repository:
     git clone https://github.com/williamdemeo/dotfiles.wjd.git
