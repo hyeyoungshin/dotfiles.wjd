@@ -6,10 +6,9 @@
 ; modified [2009.04.26] by <williamdemeo@gmail.com>
 ; modified [2004.01.09] by <williamdemeo@yahoo.com>
 
-(message "* --[ init.el: begin loading... ]--")
+(message "Loading init.el")
 
-(load "~/.emacs.d/custom_wjd_init.el" t t)
+(load "~/.emacs.d/custom_wjd_init.el")
 
-(load "~/.emacs.d/Stanford_init.el" t t)
+(load "~/.emacs.d/Stanford_init.el")
 
-(message "* --[ init.el: ...loading finished ]--")

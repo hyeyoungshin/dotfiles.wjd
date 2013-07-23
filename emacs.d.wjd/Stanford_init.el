@@ -1,8 +1,6 @@
 ;; -*- mode: emacs-lisp -*-
 ;; Simple .emacs configuration
 
-(message "* --[ Stanford_init.el: begin loading... ]--")
-
 ;; ---------------------
 ;; -- Global Settings --
 ;; ---------------------
@@ -79,4 +77,3 @@
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 
-(message "* --[ Stanford_init.el: ...loading finished ]--")

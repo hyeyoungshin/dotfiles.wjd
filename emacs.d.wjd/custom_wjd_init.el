@@ -4,8 +4,6 @@
 ; modified [2013.07.23] by <williamdemeo@gmail.com>
 ; modified [2011.01.01] by <williamdemeo@gmail.com>
 
-(message "* --[ custom.el: begin loading... ]--")
-
 (setq load-path (cons "~/.elisp" load-path))
 (scroll-bar-mode -1)
 
@@ -102,7 +100,7 @@
 ;        ("bib" . "kpsewhich -format=.bib %f")))
 
 ;; >>>> Set the default location for your main .bib database here <<<<
-;; (setq reftex-default-bibliography '("~/Dropbox/RESEARCH/wjd.bib"))
+(setq reftex-default-bibliography '("~/Dropbox/RESEARCH/wjd.bib"))
 
 ;;
 ;;  BibTex Mode
@@ -208,4 +206,3 @@
 
 
 
-(message "* --[ custom.el: ...loading finished ]--")
