@@ -167,11 +167,9 @@
  '(custom-enabled-themes (quote (deeper-blue)))
  '(fill-column 80)
  '(font-lock-maximum-decoration t)
- '(fringe-mode 0 nil (fringe))
+ '(fringe-mode 1 nil (fringe))
  '(gutter-buffers-tab-visible-p nil)
  '(paren-mode (quote paren) nil (paren))
- '(reftex-bibpath-environment-variables (quote ("BIBINPUTS=~/texmf/bibtex/bib/" "TEXBIB=~/texmf/bibtex/bib/")))
- '(safe-local-variable-values (quote ((TeX-master . "dissertation-wjd.tex"))))
  '(scrollbars-visible-p nil)
  '(tool-bar-mode nil)
  '(toolbar-visible-p nil)
@@ -183,6 +181,8 @@
 ;;   ;; If there is more than one, they won't work right.
 ;;  '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
 
+(set-fringe-mode '(1 . 0))
+(setq left-fringe-width 2)
 
 ; Load theme
 ;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
