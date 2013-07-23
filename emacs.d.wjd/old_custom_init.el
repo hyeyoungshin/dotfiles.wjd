@@ -15,27 +15,11 @@
  	    (auto-fill-mode t)
 	    (reftex-mode t)))
 
-(defun arrange-frame (w h x y)
-  "Set the width, height, and x/y position of the current frame"
-  (let ((frame (selected-frame)))
-    (delete-other-windows)
-    (set-frame-position frame x y)
-    (set-frame-size frame w h)))
 
-; resize emacs window to fit chronos
-(arrange-frame 187 48 70 0)
-(setq default-frame-alist
-      '(
-;        (cursor-color . "orange")
-;        (cursor-type . box)
-;        (foreground-color . "black")
-;        (background-color . "DarkSlateGray")
-;        (menu-bar-lines . 0)
-        (width . 187)
-        (height . 48)
-        )
-      )
-
+;(add-to-list 'load-path "~/pub/share/wiki")
+;(add-to-list 'load-path "~/pub/share/planner")
+;(require 'planner)
+;(plan)
 
 ;;;; THE FOLLOWING SHOULD ALL GO IN init.el!!!
 

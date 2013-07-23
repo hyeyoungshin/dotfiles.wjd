@@ -9,23 +9,34 @@
 (setq load-path (cons "~/.elisp" load-path))
 (scroll-bar-mode -1)
 
-;;;; ----uncomment this section to use emacs for gmail----
-;; (setq starttls-use-gnutls t)
-;; (setq send-mail-function 'smtpmail-send-it
-;;       message-send-mail-function 'smtpmail-send-it
-;;       smtpmail-starttls-credentials
-;;       '(("smtp.gmail.com" 587 nil nil))
-;;       smtpmail-auth-credentials
-;;       (expand-file-name "~/.authinfo")
-;;       smtpmail-default-smtp-server "smtp.gmail.com"
-;;       smtpmail-smtp-server "smtp.gmail.com"
-;;       smtpmail-smtp-service 587
-;;       smtpmail-debug-info t)
-;; (require 'smtpmail)
-;;;; ----end gmail section
+;; If emacs is started in a new window, that window 
+;; should be sized appropriately for your screen.
+(defun arrange-frame (w h x y)
+  "Set the width, height, and x/y position of the current frame"
+  (let ((frame (selected-frame)))
+    (delete-other-windows)
+    (set-frame-position frame x y)
+    (set-frame-size frame w h)))
+
+(when (display-graphic-p)
+  (arrange-frame 187 48 70 0)  ; <<<< set the w h x y variables here
+)
+
+;; (setq default-frame-alist
+;;       '(
+;;         (cursor-color . "orange")
+;;         (cursor-type . box)
+;;         (foreground-color . "black")
+;;         (background-color . "DarkSlateGray")
+;;         (menu-bar-lines . 0)
+;;         (width . 187)
+;;         (height . 48)
+;;         )
+;;       )
+
 
 ;;; uncomment this line to disable loading of "default.el" at startup
-;; (setq inhibit-default-init t)
+(setq inhibit-default-init t)
 
 
 ;; turn on font-lock mode
@@ -49,6 +60,7 @@
 (define-key global-map "\C-cc" 'compile)
 (define-key global-map "\C-cs" 'shell)
 (define-key global-map "\C-cg" 'gdb)
+(define-key global-map "\M-g g" 'magin-status)
 
 ;; 
 ;;  Matlab/Octave Mode
@@ -66,14 +78,14 @@
  	    (font-lock-mode 1)))
  ;; see: file:///usr/share/doc/octave2.1-htmldoc/octave_39.html#SEC230
 
-(autoload 'noweb-mode "noweb-mode" "noweb mode." t)
-(setq auto-mode-alist
-      (cons '("\\.nw$" . noweb-mode) auto-mode-alist))
+;; (autoload 'noweb-mode "noweb-mode" "noweb mode." t)
+;; (setq auto-mode-alist
+;;       (cons '("\\.nw$" . noweb-mode) auto-mode-alist))
 
-(add-hook 'noweb-mode-hook
-	  '(lambda ()
-	     (setq-default noweb-set-code-mode "matlab-mode")
-	     (setq-default noweb-set-doc-mode "LaTeX-mode")))
+;; (add-hook 'noweb-mode-hook
+;; 	  '(lambda ()
+;; 	     (setq-default noweb-set-code-mode "matlab-mode")
+;; 	     (setq-default noweb-set-doc-mode "LaTeX-mode")))
 
 ;; 
 ;;  LaTeX Mode
@@ -92,7 +104,8 @@
 ;       '(("tex" . "kpsewhich -format=.tex %f")
 ;        ("bib" . "kpsewhich -format=.bib %f")))
 
-(setq reftex-default-bibliography '("~/texmf/bibtex/bib/wjd.bib"))
+;; >>>> Set the default location for your main .bib database here <<<<
+;; (setq reftex-default-bibliography '("~/Dropbox/RESEARCH/wjd.bib"))
 
 ;;
 ;;  BibTex Mode
@@ -124,21 +137,13 @@
 ;; From file:///usr/share/doc/xemacs21/README.Debian
 ;;
 
-;make all fonts available from Options->Fonts menu
-(setq-default font-menu-ignore-scaled-fonts nil)
+;; make all fonts available from Options->Fonts menu
+;(setq-default font-menu-ignore-scaled-fonts nil)
 
-; Word abbreviation mode (see LGE p. 74)
+;; Word abbreviation mode (see LGE p. 74)
 ;	(setq-default abbrev-mode t)
 ;	(read-abbrev-file "~/.abbrev_defs")
 ;	(setq save-abbrevs t)
-
-;; ; template for new matlab files
-;; (add-hook 'find-file-hooks 'auto-insert)
-;; (load-library "autoinsert")
-;; (setq auto-insert-directory "~/.xemacs/")
-;; (setq auto-insert-alist
-;;       (append '((matlab-mode .  "header.m"))
-;; 	      auto-insert-alist))
 
 
 ;; gap mode
@@ -152,18 +157,7 @@
 ;;(setq gap-executable "/usr/algebra/bin/gap")
 ;;(setq gap-start-options (list "-l" "/usr/algebra/gap3.1/lib" "-m" "2m"))
 
-;(add-to-list 'load-path "~/pub/share/wiki")
-;(add-to-list 'load-path "~/pub/share/planner")
-;(require 'planner)
-;(plan)
 
-;(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-; '(default ((t (:size "14pt" :family "Andale Mono"))))
-;; '(show-paren-match ((((class color) (background light)) (:background "lightgrey")))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -176,6 +170,7 @@
  '(custom-enabled-themes (quote (deeper-blue)))
  '(fill-column 80)
  '(font-lock-maximum-decoration t)
+ '(fringe-mode 0 nil (fringe))
  '(gutter-buffers-tab-visible-p nil)
  '(paren-mode (quote paren) nil (paren))
  '(reftex-bibpath-environment-variables (quote ("BIBINPUTS=~/texmf/bibtex/bib/" "TEXBIB=~/texmf/bibtex/bib/")))
@@ -193,14 +188,27 @@
 
 
 ; Load theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'monokai t)
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;(load-theme 'monokai t)
 
 ; Set font
 ;(set-default-font "Inconsolata-12")
 
-; Hide toolbar and scrollbar
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
+;;;; ----uncomment this section to use emacs for gmail----
+;; (setq starttls-use-gnutls t)
+;; (setq send-mail-function 'smtpmail-send-it
+;;       message-send-mail-function 'smtpmail-send-it
+;;       smtpmail-starttls-credentials
+;;       '(("smtp.gmail.com" 587 nil nil))
+;;       smtpmail-auth-credentials
+;;       (expand-file-name "~/.authinfo")
+;;       smtpmail-default-smtp-server "smtp.gmail.com"
+;;       smtpmail-smtp-server "smtp.gmail.com"
+;;       smtpmail-smtp-service 587
+;;       smtpmail-debug-info t)
+;; (require 'smtpmail)
+;;;; ----end gmail section
+
+
 
 (message "* --[ custom.el: ...loading finished ]--")
