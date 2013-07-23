@@ -16,6 +16,21 @@
 	    (reftex-mode t)))
 
 
+;; (setq default-frame-alist
+;;       '(
+;;         (cursor-color . "orange")
+;;         (cursor-type . box)
+;;         (foreground-color . "black")
+;;         (background-color . "DarkSlateGray")
+;;         (menu-bar-lines . 0)
+;;         (width . 187)
+;;         (height . 48)
+;;         )
+;;       )
+
+;for auctex
+;(require 'tex-site)
+
 ;(add-to-list 'load-path "~/pub/share/wiki")
 ;(add-to-list 'load-path "~/pub/share/planner")
 ;(require 'planner)

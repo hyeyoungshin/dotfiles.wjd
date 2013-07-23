@@ -22,17 +22,19 @@
   (arrange-frame 187 48 70 0)  ; <<<< set the w h x y variables here
 )
 
-;; (setq default-frame-alist
-;;       '(
-;;         (cursor-color . "orange")
-;;         (cursor-type . box)
-;;         (foreground-color . "black")
-;;         (background-color . "DarkSlateGray")
-;;         (menu-bar-lines . 0)
-;;         (width . 187)
-;;         (height . 48)
-;;         )
-;;       )
+
+;;
+;; For Magit
+;;
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+      ("marmalade" . "http://marmalade-repo.org/packages/")
+      ("melpa" . "http://melpa.milkbox.net/packages/")))
+;; If you want to use magit, install the magit package
+;; (if you haven't done so already) with the following commands:
+;; \M pacakge-refresh-contents
+;; \M pacakge-install [Enter] magit
+(define-key global-map "\M-gm" 'magit-status)
+
 
 
 ;;; uncomment this line to disable loading of "default.el" at startup
@@ -51,16 +53,11 @@
 ;; the file old_custom_init.el
 
 
-;for auctex
-;(require 'tex-site)
-
 ;;
 ;; Global key bindings
-;;
 (define-key global-map "\C-cc" 'compile)
 (define-key global-map "\C-cs" 'shell)
 (define-key global-map "\C-cg" 'gdb)
-(define-key global-map "\M-g g" 'magin-status)
 
 ;; 
 ;;  Matlab/Octave Mode
