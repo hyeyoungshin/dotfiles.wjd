@@ -206,3 +206,8 @@
 
 
 
+      (autoload 'gap-mode "gap-mode" "Gap editing mode" t)
+      (setq auto-mode-alist (apply 'list
+                                   '("\\.g$" . gap-mode)
+                                   '("\\.gap$" . gap-mode)
+                                   auto-mode-alist))
