@@ -52,8 +52,8 @@ Installing Magit
     (This was done for you if you ran the setup.sh script as described above.)
 
         (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("marmalade" . "http://marmalade-repo.org/packages/")
-        ("melpa" . "http://melpa.milkbox.net/packages/")))
+            ("marmalade" . "http://marmalade-repo.org/packages/")
+            ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 2.  Start emacs and do `M-x package-install`  (no quotes)
     when it prompts you with "Install package:", enter magit.
