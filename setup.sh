@@ -39,6 +39,7 @@ else
     git clone https://github.com/williamdemeo/dotfiles.wjd.git
 
     # Create the required links:
+    ln -sb --suffix='.orig' ~/dotfiles.wjd/screenrc ~/.screenrc
     ln -sb --suffix='.orig' ~/dotfiles.wjd/bashrc.wjd ~/.bashrc
     ln -sb --suffix='.orig' ~/dotfiles.wjd/bashrc_custom.wjd ~/.bashrc_custom
     ln -sb --suffix='.orig' ~/dotfiles.wjd/bash_profile.wjd ~/.bash_profile
