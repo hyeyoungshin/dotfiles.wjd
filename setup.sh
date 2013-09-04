@@ -31,21 +31,33 @@ sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
 
 # Backup any previous versions:
 cd $HOME
-if [ -d ./dotfiles.wjd/ ]; then
-    echo 'ERROR: Directory dotfiles.wjd already exists...'
-    echo 'ERROR:    ...please rename it and run setup.sh again.'
-else
-    # Get the dotfiles.wjd repository:
-    git clone https://github.com/williamdemeo/dotfiles.wjd.git
-
-    # Create the required links:
-    ln -sb --suffix='.orig' ~/dotfiles.wjd/screenrc ~/.screenrc
-    ln -sb --suffix='.orig' ~/dotfiles.wjd/bashrc.wjd ~/.bashrc
-    ln -sb --suffix='.orig' ~/dotfiles.wjd/bashrc_custom.wjd ~/.bashrc_custom
-    ln -sb --suffix='.orig' ~/dotfiles.wjd/bash_profile.wjd ~/.bash_profile
-    ln -sb --suffix='.orig' ~/dotfiles.wjd/bash_aliases.wjd ~/.bash_aliases
-    ln -sb --suffix='.orig' ~/dotfiles.wjd/profile.wjd ~/.profile
-    ln -sb --suffix='.orig' ~/dotfiles.wjd/emacs.d.wjd ~/.emacs.d
-    ln -sb --suffix='.orig' ~/dotfiles.wjd/emacs.d.wjd/init.el ~/.emacs
+dotfiles_path=$HOME'/.dotfiles.wjd'
+if [ -d $dotfiles_path/ ]; then
+    echo 'Directory '$dotfiles_path' already exists...'
+    read -p 'Rename it? [Y/n]' -n 1 -r
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+	echo $(date +'%Y%m%d:%H:%m')
+	mv $dotfiles_path $dotfiles_path'_backup_'$(date +'%Y%m%d:%H:%M')
+    else
+	echo 'Aborting setup. (Please rename '$dotfiles_path' and try again.)'
+	exit
+    fi
 fi
+# Get the dotfiles.wjd repository:
+git clone https://github.com/williamdemeo/dotfiles.wjd.git
+
+mv dotfiles.wjd .dotfiles.wjd # renaming it to keep $HOME looking cleaner.
+
+# Create the required links.
+# (If a file or link of that name exists, rename it with .orig extension.)
+ln -sb --suffix='.orig' ~/.dotfiles.wjd/screenrc ~/.screenrc
+ln -sb --suffix='.orig' ~/.dotfiles.wjd/bashrc.wjd ~/.bashrc
+ln -sb --suffix='.orig' ~/.dotfiles.wjd/bashrc_custom.wjd ~/.bashrc_custom
+ln -sb --suffix='.orig' ~/.dotfiles.wjd/bash_profile.wjd ~/.bash_profile
+ln -sb --suffix='.orig' ~/.dotfiles.wjd/bash_aliases.wjd ~/.bash_aliases
+ln -sb --suffix='.orig' ~/.dotfiles.wjd/profile.wjd ~/.profile
+ln -sb --suffix='.orig' ~/.dotfiles.wjd/emacs.d.wjd ~/.emacs.d
+ln -sb --suffix='.orig' ~/.dotfiles.wjd/emacs.d.wjd/init.el ~/.emacs
+
 
