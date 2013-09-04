@@ -60,4 +60,16 @@ ln -sb --suffix='.orig' ~/.dotfiles.wjd/profile.wjd ~/.profile
 ln -sb --suffix='.orig' ~/.dotfiles.wjd/emacs.d.wjd ~/.emacs.d
 ln -sb --suffix='.orig' ~/.dotfiles.wjd/emacs.d.wjd/init.el ~/.emacs
 
+echo
+echo
+echo '  Configuration is complete.'
+echo 
+echo '  You may now delete setup.sh.'
+echo
+echo '  The dotfiles.wjd repository has been cloned in ~/.dotfiles.wjd'
+echo '  (and a setup.sh file is there if you ever need to run it again).'
+echo 
+echo '  Please post comments, questions, or feedback at at:'
+echo '  http://williamdemeo.org.'
+echo
 
