@@ -55,8 +55,8 @@ Installing Magit
             ("marmalade" . "http://marmalade-repo.org/packages/")
             ("melpa" . "http://melpa.milkbox.net/packages/")))
 
-2.  Start emacs and do `M-x package-install`
-    When it prompts you with "Install package:", enter magit.
+2.  Start emacs and do `M-x package-install`.
+    When it prompts you with "Install package:", enter `magit`.
 
 Using Magit
 -----------
