@@ -68,8 +68,11 @@ echo '  You may now delete setup.sh.'
 echo
 echo '  The dotfiles.wjd repository has been cloned in ~/.dotfiles.wjd'
 echo '  (and a setup.sh file is there if you ever need to run it again).'
-echo 
-echo '  Please post comments, questions, or feedback at at:'
+echo
+echo '  If you want to use Magit in Emacs, there are some instructions at'
+echo '  the bottom of the file ~/dotfiles.wjd/README.md.'
+echo   
+echo '  You can post comments, questions, or feedback in a comment box at:'
 echo '  http://williamdemeo.org.'
 echo
 
