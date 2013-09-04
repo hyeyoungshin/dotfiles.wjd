@@ -61,12 +61,10 @@ Installing Magit
 Using Magit
 -----------
 
-Follow the directions here:
+Follow the directions here: http://magit.github.io/magit/magit.html
 
-    http://magit.github.io/magit/magit.html
-
-You may find them a little confusing at first, but here's a quick and dirty
-example to get you started:
+You may find these directions a bit confusing at first, so here's a 
+quick and dirty example to get you started:
 
 1.  Stage a modified file for commit.
 
@@ -81,9 +79,7 @@ example to get you started:
     Type c, which will bring up a new buffer. Write your commit comments
     there, then type Ctrl+c Ctrl+c to commit the change.
 
-    The first two steps above are covered here:
-
-        http://magit.github.io/magit/magit.html#Staging-and-Committing
+    The first two steps above are covered here: http://magit.github.io/magit/magit.html#Staging-and-Committing
 
 3.  Push to github.
 
@@ -91,7 +87,5 @@ example to get you started:
 
     This will push everything that is listed under "Unpushed"
 
-    See also:
-
-        http://magit.github.io/magit/magit.html#Pushing-and-Pulling
+    See also: http://magit.github.io/magit/magit.html#Pushing-and-Pulling
 
