@@ -44,10 +44,18 @@ if [ -d $dotfiles_path/ ]; then
 	exit
     fi
 fi
+# Temporarily move pre-existing dotfiles.wjd out of the way:
+if [ -d $HOME'/dotfiles.wjd' ]; then
+    mv $HOME'/dotfiles.wjd' $HOME'/dotfiles.wjd.tmp'
+fi
 # Get the dotfiles.wjd repository:
 git clone https://github.com/williamdemeo/dotfiles.wjd.git
-
 mv dotfiles.wjd .dotfiles.wjd # renaming it to keep $HOME looking cleaner.
+
+# Restore pre-existing dotfiles.wjd out of the way:
+if [ -d $HOME'/dotfiles.wjd.tmp' ]; then
+    mv $HOME'/dotfiles.wjd.tmp' $HOME'/dotfiles.wjd'
+fi
 
 # Create the required links.
 # (If a file or link of that name exists, rename it with .orig extension.)
