@@ -5,6 +5,32 @@
 # William DeMeo <williamdemeo@gmail.com>
 # Date: 2013.07.14
 
+echo
+echo 'This script will install/configure some useful tools on a Ubuntu Linux machine.'
+echo
+echo 'Here is a summary of what will be installed:'
+echo
+echo '    1.  git-core (main components required to use Git version control software)'
+echo '    2.  curl (command-line tool for transferring data using various protocols)'
+echo '    3.  node (server side JavaScript), and the node version manager (nvm)'
+echo '    4.  jshint (allows checking JS code within emacs; see http://jshint.com/)'
+echo '    5.  rlwrap (libreadline features for node; see: http://nodejs.org/api/repl.html)'
+echo '    6.  emacs24 (a recent release of Emacs)'
+echo '    7.  dotfiles.wjd (configuration files; see: https://github.com/williamdemeo/dotfiles.wjd'
+echo '            Specifically, .profile, .bashrc, .bash_aliases, .bash_profile, .bashrc_custom,'
+echo '            .screenrc, .emacs.  These files alter the behavior of the Linux command line,'
+echo '            emacs, and the screen program. Your original versions will not be deleted.'
+echo
+read -p 'Abort this setup script? [Y/n]' -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]] 
+then
+    echo
+    echo 'Setup aborted.'
+    echo
+    exit
+fi
+echo
+
 # Install nvm: node-version manager
 # https://github.com/creationix/nvm
 sudo apt-get install -y git-core curl
@@ -29,30 +55,37 @@ sudo apt-add-repository -y ppa:cassou/emacs
 sudo apt-get update
 sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
 
-# Backup any previous versions:
 cd $HOME
 dotfiles_path=$HOME'/.dotfiles.wjd'
+
+# Check for pre-existing .dotfiles.wjd directory
+# If one exists, ask whether to rename it and continue. (Otherwise, abort.)
 if [ -d $dotfiles_path/ ]; then
-    echo 'Directory '$dotfiles_path' already exists...'
-    read -p 'Rename it? [Y/n]' -n 1 -r
+    echo
+    echo '    Directory '$dotfiles_path' already exists...'
+    read -p '    Rename it? [Y/n]' -n 1 -r
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
 	echo $(date +'%Y%m%d:%H:%m')
 	mv $dotfiles_path $dotfiles_path'_backup_'$(date +'%Y%m%d:%H:%M')
     else
-	echo 'Aborting setup. (Please rename '$dotfiles_path' and try again.)'
+	echo
+	echo '    Aborting setup. (Please rename '$dotfiles_path' and try again.)'
+	echo
 	exit
     fi
 fi
-# Temporarily move pre-existing dotfiles.wjd out of the way:
+
+# Also move pre-existing dotfiles.wjd out of the way:
 if [ -d $HOME'/dotfiles.wjd' ]; then
     mv $HOME'/dotfiles.wjd' $HOME'/dotfiles.wjd.tmp'
 fi
-# Get the dotfiles.wjd repository:
-git clone https://github.com/williamdemeo/dotfiles.wjd.git
-mv dotfiles.wjd .dotfiles.wjd # renaming it to keep $HOME looking cleaner.
 
-# Restore pre-existing dotfiles.wjd out of the way:
+# Get the dotfiles.wjd repository, then rename it to keep $HOME looking cleaner:
+git clone https://github.com/williamdemeo/dotfiles.wjd.git
+mv dotfiles.wjd .dotfiles.wjd 
+
+# Restore possibly pre-existing dotfiles.wjd:
 if [ -d $HOME'/dotfiles.wjd.tmp' ]; then
     mv $HOME'/dotfiles.wjd.tmp' $HOME'/dotfiles.wjd'
 fi
@@ -70,17 +103,15 @@ ln -sb --suffix='.orig' ~/.dotfiles.wjd/emacs.d.wjd/init.el ~/.emacs
 
 echo
 echo
-echo '  Configuration is complete.'
-echo 
-echo '  You may now delete setup.sh.'
+echo '    Configuration is complete.'
 echo
-echo '  The dotfiles.wjd repository has been cloned in ~/.dotfiles.wjd'
-echo '  (and a setup.sh file is there if you ever need to run it again).'
+echo '    Assuming all went well, the dotfiles.wjd repository has been cloned and'
+echo '    saved at ~/.dotfiles.wjd (and your dot files now link to that directory).'
 echo
-echo '  If you want to use Magit in Emacs, there are some instructions at'
-echo '  the bottom of the file ~/dotfiles.wjd/README.md.'
+echo '    If you want to use Magit in Emacs, see the instructions at the bottom of'
+echo '    the file ~/dotfiles.wjd/README.md.'
 echo   
-echo '  You can post comments, questions, or feedback in a comment box at:'
-echo '  http://williamdemeo.org.'
+echo '    You can post comments, questions, or feedback in a comment box at:'
+echo '    http://williamdemeo.org.'
 echo
 
