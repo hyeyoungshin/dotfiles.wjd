@@ -66,7 +66,6 @@ if [ -d $dotfiles_path/ ]; then
     read -p '    Rename it? [Y/n]' -n 1 -r
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-	echo $(date +'%Y%m%d:%H:%m')
 	mv $dotfiles_path $dotfiles_path'_backup_'$(date +'%Y%m%d:%H:%M')
     else
 	echo
