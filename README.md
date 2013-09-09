@@ -13,15 +13,14 @@ Installation
 ============
 
 If you want to use the script, you don't need the whole repository.
-You can just download the file setup.sh at
+You can just enter the following commands at the Linux command line 
+(This has only been tested on a standard Ubuntu Linux 12.04 machine):
 
-    https://raw.github.com/williamdemeo/dotfiles.wjd/master/setup.sh
+1.  https://raw.github.com/williamdemeo/dotfiles.wjd/master/setup.sh
 
-then do
+2.  `chmod a+x setup.sh`
 
-    chmod a+x setup.sh
-
-    ./setup.sh
+3.  `./setup.sh`
 
 The script will grab what it needs.  In particular, it will
 install the following:
