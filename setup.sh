@@ -108,7 +108,7 @@ echo '    Assuming all went well, the dotfiles.wjd repository has been cloned an
 echo '    saved at ~/.dotfiles.wjd (and your dot files now link to that directory).'
 echo
 echo '    If you want to use Magit in Emacs, see the instructions at the bottom of'
-echo '    the file ~/dotfiles.wjd/README.md.'
+echo '    the file ~/.dotfiles.wjd/README.md.'
 echo   
 echo '    You can post comments, questions, or feedback in a comment box at:'
 echo '    http://williamdemeo.org.'
