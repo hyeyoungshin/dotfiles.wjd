@@ -41,6 +41,12 @@ install the following:
     .emacs, .screenrc, and a few others.
 
 
+Troubleshooting
+===============
+Once the setup completes successfully, if you try to type `node` at the command line, 
+for example, it will say command not found.  Exit and open a new terminal so 
+the environmental variables will be set properly.
+
 Cofiguring/Using Magit
 ======================
 
