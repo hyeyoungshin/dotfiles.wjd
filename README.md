@@ -13,10 +13,10 @@ Installation
 ============
 
 If you want to use the script, you don't need the whole repository.
-You can just enter the following commands at the Linux command line 
-(This has only been tested on a standard Ubuntu Linux 12.04 machine):
+You can just enter the following at the Linux command line (this has only been 
+tested on a standard Ubuntu Linux 12.04 machine):
 
-1.  https://raw.github.com/williamdemeo/dotfiles.wjd/master/setup.sh
+1.  wget https://raw.github.com/williamdemeo/dotfiles.wjd/master/setup.sh
 
 2.  `chmod a+x setup.sh`
 
