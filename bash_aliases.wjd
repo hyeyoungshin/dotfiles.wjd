@@ -46,3 +46,9 @@ alias treeacl='tree -A -C -L 2'
 # 2.3) Text and editor commands
 alias em='emacs -nw'     # No X11 windows
 alias eqq='emacs -nw -Q' # No config and no X11
+
+
+# For mounting a Nexus 4; see http://youtu.be/fw2MKGIgyF4
+# and http://www.omgubuntu.co.uk/2013/06/mount-nexus-4-on-ubuntu
+alias mountnexus="sudo mtpfs -o allow_other /media/nexus4"
+alias umountnexus="sudo umount /media/nexus4"
