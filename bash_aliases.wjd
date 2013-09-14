@@ -50,5 +50,7 @@ alias eqq='emacs -nw -Q' # No config and no X11
 
 # For mounting a Nexus 4; see http://youtu.be/fw2MKGIgyF4
 # and http://www.omgubuntu.co.uk/2013/06/mount-nexus-4-on-ubuntu
-alias mountnexus="sudo mtpfs -o allow_other /media/nexus4"
-alias umountnexus="sudo umount /media/nexus4"
+#    alias mountnexus="sudo mtpfs -o allow_other /media/nexus4"
+#    alias umountnexus="sudo umount /media/nexus4"
+# No longer using this method. Instead, see:
+# http://blog.sukria.net/2013/03/09/support-for-nexus-4-in-ubuntu-12-10/
