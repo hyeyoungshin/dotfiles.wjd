@@ -18,9 +18,9 @@ tested on a standard Ubuntu Linux 12.04 machine):
 
 1.  wget https://raw.github.com/williamdemeo/dotfiles.wjd/master/setup.sh
 
-2.  `chmod a+x setup.sh`
+2.  chmod a+x setup.sh
 
-3.  `./setup.sh`
+3.  ./setup.sh
 
 The script will grab what it needs.  In particular, it will
 install the following:
@@ -47,8 +47,8 @@ Once the setup completes successfully, if you try to type `node` at the command 
 for example, it will say command not found.  Exit and open a new terminal so 
 the environmental variables will be set properly.
 
-Cofiguring/Using Magit
-======================
+Cofiguring and Using Magit
+==========================
 
 Installing Magit
 ----------------
