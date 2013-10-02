@@ -12,10 +12,10 @@ alias dum='du --max-depth=1 -h | grep M'
 alias dug='du --max-depth=1 -h | grep G'
 
 # For removing extraneous files produced by LaTeX:
-alias rmtex='rm -f *.aux *.blg *.log *.toc *.idx *.lof *.ilg'
+alias rmtex='rm -f *.out *.aux *.blg *.log *.toc *.idx *.lof *.ilg'
 
 # For removing files produced by emacs:
-alias rmt='rm *~'
+alias rmt='\rm *~'
 
 # For turning off trackpad on laptops
 alias padoff='xinput set-prop 13 "Device Enabled" 0'
