@@ -82,7 +82,9 @@ fi
 
 # Get the dotfiles.wjd repository, then rename it to keep $HOME looking cleaner:
 git clone https://github.com/williamdemeo/dotfiles.wjd.git
+cd dotfiles.wjd
 git remote set-url origin git@github.com:williamdemeo/dotfiles.wjd.git
+cd 
 mv dotfiles.wjd .dotfiles.wjd 
 
 # Restore possibly pre-existing dotfiles.wjd:
@@ -98,7 +100,13 @@ ln -sb --suffix='.orig' ~/.dotfiles.wjd/bashrc_custom.wjd ~/.bashrc_custom
 ln -sb --suffix='.orig' ~/.dotfiles.wjd/bash_profile.wjd ~/.bash_profile
 ln -sb --suffix='.orig' ~/.dotfiles.wjd/bash_aliases.wjd ~/.bash_aliases
 ln -sb --suffix='.orig' ~/.dotfiles.wjd/profile.wjd ~/.profile
-ln -sb --suffix='.orig' ~/.dotfiles.wjd/emacs.d.wjd ~/.emacs.d
+
+# Don't do the same for directory links as it might cause infinite link loops.
+# Instead, do:
+if [ -h $HOME'/.emacs.d' ]; then
+    mv $HOME'/.emacs.d' $HOME'/.emacs.d.orig'
+fi
+ln -s ~/.dotfiles.wjd/emacs.d.wjd ~/.emacs.d
 ln -sb --suffix='.orig' ~/.dotfiles.wjd/emacs.d.wjd/init.el ~/.emacs
 
 echo
