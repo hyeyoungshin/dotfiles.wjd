@@ -82,6 +82,7 @@ fi
 
 # Get the dotfiles.wjd repository, then rename it to keep $HOME looking cleaner:
 git clone https://github.com/williamdemeo/dotfiles.wjd.git
+git remote set-url origin git@github.com:williamdemeo/dotfiles.wjd.git
 mv dotfiles.wjd .dotfiles.wjd 
 
 # Restore possibly pre-existing dotfiles.wjd:
