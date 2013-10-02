@@ -29,8 +29,8 @@
       ("melpa" . "http://melpa.milkbox.net/packages/")))
 ;; If you want to use magit, install the magit package
 ;; (if you haven't done so already) with the following commands:
-;; \M pacakge-refresh-contents
-;; \M pacakge-install [Enter] magit
+;; \M package-refresh-contents
+;; \M package-install [Enter] magit
 (define-key global-map "\M-gm" 'magit-status)
 
 
