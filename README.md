@@ -9,6 +9,8 @@ The original repo is at: https://github.com/startup-class/setup
 The setup.sh script in this repository contains some useful
 commands for configuring some basic things in Ubuntu Linux.
 
+If you try the instructions below and have problems, please [report the issue](https://github.com/williamdemeo/dotfiles.wjd/issues).
+
 Installation
 ============
 
