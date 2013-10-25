@@ -15,7 +15,7 @@ echo '    2.  curl (command-line tool for transferring data using various protoc
 echo '    3.  node (server side JavaScript), and the node version manager (nvm)'
 echo '    4.  jshint (allows checking JS code within emacs; see http://jshint.com/)'
 echo '    5.  rlwrap (libreadline features for node; see: http://nodejs.org/api/repl.html)'
-echo '    6.  emacs24 (a recent release of Emacs)'
+echo '    6.  emacs24 (a recent release of Emacs) and emacs-goodies-el'
 echo '    7.  dotfiles.wjd (configuration files; see: https://github.com/williamdemeo/dotfiles.wjd'
 echo '            Specifically, .profile, .bashrc, .bash_aliases, .bash_profile, .bashrc_custom,'
 echo '            .screenrc, .emacs.  These files alter the behavior of the Linux command line,'
@@ -54,6 +54,7 @@ sudo apt-get install -y rlwrap
 sudo apt-add-repository -y ppa:cassou/emacs
 sudo apt-get update
 sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
+sudo apt-get install emacs-goodies-el
 
 cd $HOME
 dotfiles_path=$HOME'/.dotfiles.wjd'
