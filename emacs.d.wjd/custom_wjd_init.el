@@ -85,21 +85,21 @@
 ;; 
 ;;  LaTeX Mode
 ;;
-;; (setq auto-mode-alist
-;;       (cons '("\\.tex$" . LaTeX-mode) auto-mode-alist))
-;; (setq auto-mode-alist
-;;       (cons '("\\.def$" . LaTeX-mode) auto-mode-alist))
-;; (add-hook 'LaTeX-mode-hook 
-;;           (lambda () 
-;; 	    (auto-fill-mode 1)
-;; 	    (font-lock-mode 1)))
-;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
+(setq auto-mode-alist
+      (cons '("\\.tex$" . LaTeX-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("\\.def$" . LaTeX-mode) auto-mode-alist))
+(add-hook 'LaTeX-mode-hook 
+          (lambda () 
+	    (auto-fill-mode 1)
+	    (font-lock-mode 1)))
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
 
 
 
-;(setq reftex-external-file-finders
-;       '(("tex" . "kpsewhich -format=.tex %f")
-;        ("bib" . "kpsewhich -format=.bib %f")))
+(setq reftex-external-file-finders
+      '(("tex" . "kpsewhich -format=.tex %f")
+       ("bib" . "kpsewhich -format=.bib %f")))
 
 
  (add-hook 'latex-mode-hook
