@@ -128,6 +128,12 @@
 (add-hook 'bibtex-mode-hook 'turn-on-font-lock)
 
 ;;
+;;  Markdown Mode
+;;
+(setq auto-mode-alist (cons '("\\.md$" . markdown-mode) auto-mode-alist))
+(add-hook 'markdown-mode-hook (lambda () (auto-fill-mode 1))
+
+;;
 ;; NOTES
 ;;
 ;[Changing colours]
