@@ -18,7 +18,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=/home/williamdemeo/bin:$PATH
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
