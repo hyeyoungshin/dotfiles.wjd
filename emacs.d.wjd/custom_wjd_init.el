@@ -7,6 +7,13 @@
 (setq load-path (cons "~/.elisp" load-path))
 (scroll-bar-mode -1)
 
+;; Proof General IDE for Coq
+(load-file "~/opt/ProofGeneral/generic/proof-site.el")
+
+;; Agda mode
+;; (load-file (let ((coding-system-for-read 'utf-8))
+;;                 (shell-command-to-string "agda-mode locate")))
+
 ;; If emacs is started in a new window, that window 
 ;; should be sized appropriately for your screen.
 (defun arrange-frame (w h x y)
