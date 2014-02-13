@@ -8,26 +8,12 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# if running bash
+# if running bash, include .bashrc if it exists
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
     fi
 fi
 
-# set PATH so it includes the following directories:
-PATHDIRS="$HOME/bin
-$HOME/opt/jython/jython2.7b1/bin
-$HOME/Library/Haskell/bin
-$HOME/.cabal/bin
-$HOME/.rbenv/bin
-$HOME/.rbenv/plugins/ruby-build/bin"
-
-for f in $PATHDIRS; do
-    if [ -d $f ]; then
-	PATH=$PATH:${f}
-    fi
-done
 
 # [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh" # This loads NVM
