@@ -8,7 +8,7 @@
 (scroll-bar-mode -1)
 
 ;; Proof General IDE for Coq
-(load-file "~/opt/ProofGeneral/generic/proof-site.el")
+;(load-file "~/opt/ProofGeneral/generic/proof-site.el")
 
 ;; Agda mode
 ;; (load-file (let ((coding-system-for-read 'utf-8))
