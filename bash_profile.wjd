@@ -79,3 +79,4 @@ for f in $PATHDIRS; do
 	PATH=$PATH:${f}
     fi
 done
+

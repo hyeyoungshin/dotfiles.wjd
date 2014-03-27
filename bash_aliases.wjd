@@ -54,3 +54,4 @@ alias eqq='emacs -nw -Q' # No config and no X11
 #    alias umountnexus="sudo umount /media/nexus4"
 # No longer using this method. Instead, see:
 # http://blog.sukria.net/2013/03/09/support-for-nexus-4-in-ubuntu-12-10/
+

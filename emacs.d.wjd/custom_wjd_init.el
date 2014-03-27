@@ -27,7 +27,6 @@
   (arrange-frame 187 48 70 0)  ; <<<< set the w h x y variables here
 )
 
-
 ;;
 ;; For Magit
 ;;
