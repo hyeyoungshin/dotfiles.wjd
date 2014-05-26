@@ -11,12 +11,11 @@ echo
 echo 'Here is a summary of what will be installed:'
 echo
 echo '    1.  git-core (main components required to use Git version control software)'
-echo '    2.  curl (command-line tool for transferring data using various protocols)'
-echo '    3.  node (server side JavaScript), and the node version manager (nvm)'
-echo '    4.  jshint (allows checking JS code within emacs; see http://jshint.com/)'
-echo '    5.  rlwrap (libreadline features for node; see: http://nodejs.org/api/repl.html)'
-echo '    6.  emacs24 (a recent release of Emacs) and emacs-goodies-el'
-echo '    7.  dotfiles.wjd (configuration files; see: https://github.com/williamdemeo/dotfiles.wjd'
+echo '    2.  node (server side JavaScript), and the node version manager (nvm)'
+echo '    3.  jshint (allows checking JS code within emacs; see http://jshint.com/)'
+echo '    4.  rlwrap (libreadline features for node; see: http://nodejs.org/api/repl.html)'
+echo '    5.  emacs24 (a recent release of Emacs) and emacs-goodies-el'
+echo '    6.  dotfiles.wjd (configuration files; see: https://github.com/williamdemeo/dotfiles.wjd'
 echo '            Specifically, .profile, .bashrc, .bash_aliases, .bash_profile, .bashrc_custom,'
 echo '            .screenrc, .emacs.  These files alter the behavior of the Linux command line,'
 echo '            emacs, and the screen program. Your original versions will not be deleted.'
@@ -31,24 +30,45 @@ then
 fi
 echo
 
+###############################################################################
+echo
+echo '    1.  git-core (main components required to use Git version control software)'
+echo
+sudo apt-get install -y git-core
+
+###############################################################################
+echo
+echo '    2.  node (server side JavaScript), and the node version manager (nvm)'
+echo
 # Install nvm: node-version manager
 # https://github.com/creationix/nvm
-sudo apt-get install -y git-core curl
-curl https://raw.github.com/creationix/nvm/master/install.sh | sh
-
+git clone https://github.com/creationix/nvm.git ~/.nvm
+echo
 # Load nvm and install latest production node
 source $HOME/.nvm/nvm.sh
 nvm install v0.10.12
 nvm use v0.10.12
 
+###############################################################################
+echo
+echo '    3.  jshint (allows checking JS code within emacs; see http://jshint.com/)'
+echo
 # Install jshint to allow checking of JS code within emacs
 # http://jshint.com/
 npm install -g jshint
 
+###############################################################################
+echo
+echo '    4.  rlwrap (libreadline features for node; see: http://nodejs.org/api/repl.html)'
+echo
 # Install rlwrap to provide libreadline features with node
 # See: http://nodejs.org/api/repl.html#repl_repl
 sudo apt-get install -y rlwrap
 
+###############################################################################
+echo
+echo '    5.  emacs24 (a recent release of Emacs) and emacs-goodies-el'
+echo
 # Install emacs24
 # https://launchpad.net/~cassou/+archive/emacs
 sudo apt-add-repository -y ppa:cassou/emacs
@@ -56,6 +76,10 @@ sudo apt-get update
 sudo apt-get install -y emacs24 emacs24-el emacs24-common-non-dfsg
 sudo apt-get install emacs-goodies-el
 
+###############################################################################
+echo
+echo '    6.  dotfiles.wjd (configuration files; see: https://github.com/williamdemeo/dotfiles.wjd'
+echo
 cd $HOME
 dotfiles_path=$HOME'/.dotfiles.wjd'
 
@@ -75,6 +99,8 @@ if [ -d $dotfiles_path/ ]; then
 	exit
     fi
 fi
+
+echo
 
 # Also move pre-existing dotfiles.wjd out of the way:
 if [ -d $HOME'/dotfiles.wjd' ]; then
