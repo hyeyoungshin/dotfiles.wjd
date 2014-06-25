@@ -80,3 +80,4 @@ for f in $PATHDIRS; do
     fi
 done
 
+#export PATH=$PATH:/home/williamdemeo/bin:/home/williamdemeo/opt/sbt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin:/usr/local/bin:/usr/local/sbin
