@@ -190,11 +190,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(agda2-include-dirs (quote ("." "/home/williamdemeo/git/Agda/agda-prelude/src" "/usr/share/agda-stdlib")))
  '(ansi-color-names-vector ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(auto-fill-mode t)
  '(case-replace nil)
  '(column-number-mode t)
- '(custom-enabled-themes (quote (deeper-blue)))
+; '(custom-enabled-themes (quote (deeper-blue)))
+; '(custom-enabled-themes (quote (color-theme-snowish)))
  '(fill-column 80)
  '(font-lock-maximum-decoration t)
  '(fringe-mode 1 nil (fringe))
@@ -204,6 +206,8 @@
  '(tool-bar-mode nil)
  '(toolbar-visible-p nil)
  '(unshifted-motion-keys-deselect-region nil))
+
+  (set-face-attribute 'default (selected-frame) :height 110)
 ;; (custom-set-faces
 ;;   ;; custom-set-faces was added by Custom.
 ;;   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -213,10 +217,6 @@
 
 (set-fringe-mode '(1 . 0))
 (setq left-fringe-width 2)
-
-; Load theme
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-;(load-theme 'monokai t)
 
 ; Set font
 ;(set-default-font "Inconsolata-12")
@@ -236,10 +236,38 @@
 ;; (require 'smtpmail)
 ;;;; ----end gmail section
 
+(require 'color-theme)
+  (setq my-color-themes (list 'color-theme-billw 'color-theme-jsc-dark 
+                              'color-theme-sitaramv-solaris 'color-theme-resolve
+                              'color-theme-classic 'color-theme-jonadabian-slate
+                              'color-theme-kingsajz 'color-theme-shaman
+                              'color-theme-subtle-blue 'color-theme-snowish
+                              'color-theme-sitaramv-nt 'color-theme-wheat
+			      'color-theme-adwaita 'color-theme-deeper-blue 
+			      'color-theme-dichromacy 'color-theme-ir-black 
+			      'color-theme-light-blue 'color-theme-manoj-dark
+			      'color-theme-misterioso 
+			      'color-theme-moe 'color-theme-moe-dark 'color-theme-moe-light 
+			      'color-theme-tango 'color-theme-tango-dark
+			      'color-theme-tsdh-dark 'color-theme-tsdh-light 
+			      'color-theme-wheatgrass 'color-theme-whiteboard 
+			      'color-theme-wombat 'color-theme-zenburn))
+; Load theme
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;(load-theme 'monokai t)
+;(load-theme 'exu t)
+(require 'color-theme)
+(color-theme-initialize)
+;(color-theme-snowish)
+(color-theme-tty-dark)
 
+;; Gap
 
       (autoload 'gap-mode "gap-mode" "Gap editing mode" t)
       (setq auto-mode-alist (apply 'list
                                    '("\\.g$" . gap-mode)
                                    '("\\.gap$" . gap-mode)
                                    auto-mode-alist))
+;; Agda
+(load-file (let ((coding-system-for-read 'utf-8))
+                (shell-command-to-string "agda-mode locate")))
