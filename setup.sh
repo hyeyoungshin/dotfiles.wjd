@@ -224,13 +224,13 @@ else
     echo ' '
 fi
     echo ' '
-read -p '       6.3 Would you like to install Agda? (Warning: this may take a long time.) [Y/n]' -n 1 -r
+read -p '       6.3 Would you like to install Agda? (Warning: this will take LONG.) [Y/n]' -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo
     echo '           Installing Haskell Cabal (required for Agda install)...'
     echo
-    sudo apt-get install cabal-install zlibc ncurses-base
+    sudo apt-get install cabal-install zlibc zlib1g-dev ncurses-base libncurses5-dev
     cabal update
     echo
     echo '           Installing Agda...'
