@@ -4,7 +4,7 @@
 ;; ---------------------
 ;; -- Global Settings --
 ;; ---------------------
-(add-to-list 'load-path "~/.emacs.d")
+;(add-to-list 'load-path "~/.emacs.d")
 (require 'cl)
 (require 'ido)
 (require 'ffap)
@@ -19,8 +19,8 @@
 ;(ido-mode t)
 (menu-bar-mode -1)
 ;(normal-erase-is-backspace-mode 1)
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
+;(put 'downcase-region 'disabled nil)
+;(put 'upcase-region 'disabled nil)
 (setq column-number-mode t)
 ;(setq inhibit-startup-message t)
 (setq save-abbrevs nil)
@@ -51,7 +51,7 @@
 ;; ------------
 ;; -- Macros --
 ;; ------------
-(load "defuns-config.el")
+;; (load "defuns-config.el")
 (fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
 (global-set-key "\M-=" 'align-equals)
 (global-set-key "\C-x\C-m" 'execute-extended-command)
@@ -70,7 +70,7 @@
 ;; -- JS Mode configuration --
 ;; ---------------------------
 (load "js-config.el")
-(add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
+(add-to-list 'load-path "~/.emacs.d/lisp/jade-mode") ;; github.com/brianc/jade-mode
 (require 'sws-mode)
 (require 'jade-mode)    
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))

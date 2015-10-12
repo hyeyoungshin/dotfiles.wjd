@@ -4,11 +4,13 @@
 ; modified [2013.07.23] by <williamdemeo@gmail.com>
 ; modified [2011.01.01] by <williamdemeo@gmail.com>
 
-(setq load-path (cons "~/.elisp" load-path))
+;(setq load-path (cons "~/.elisp" load-path))
+;(setq load-path (cons "~/.emacs.d/lisp" load-path))
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (scroll-bar-mode -1)
 
 ;; Proof General IDE for Coq
-;(load-file "~/opt/ProofGeneral/generic/proof-site.el")
+(load-file "~/opt/ProofGeneral/generic/proof-site.el")
 
 ;; Agda mode
 ;; (load-file (let ((coding-system-for-read 'utf-8))
@@ -253,8 +255,8 @@
 			      'color-theme-wheatgrass 'color-theme-whiteboard 
 			      'color-theme-wombat 'color-theme-zenburn))
 ; Load theme
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-;(load-theme 'monokai t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'monokai t)
 ;(load-theme 'exu t)
 (require 'color-theme)
 (color-theme-initialize)
@@ -269,5 +271,5 @@
                                    '("\\.gap$" . gap-mode)
                                    auto-mode-alist))
 ;; Agda
-(load-file (let ((coding-system-for-read 'utf-8))
-                (shell-command-to-string "agda-mode locate")))
+;; (load-file (let ((coding-system-for-read 'utf-8))
+;;                 (shell-command-to-string "agda-mode locate")))
