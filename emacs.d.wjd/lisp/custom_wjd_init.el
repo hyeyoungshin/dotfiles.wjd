@@ -11,6 +11,9 @@
 
 ;; Proof General IDE for Coq
 (load-file "~/opt/ProofGeneral/generic/proof-site.el")
+(custom-set-variables
+ '(coq-prog-name "/Applications/CoqIDE_8.4p15.app/Contents/Resources/bin/coqtop")
+ '(proof-three-window-enable t))
 
 ;; Agda mode
 ;; (load-file (let ((coding-system-for-read 'utf-8))
